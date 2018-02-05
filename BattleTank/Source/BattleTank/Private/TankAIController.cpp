@@ -17,6 +17,11 @@ void ATankAIController::BeginPlay()
 	}
 }
 
+void ATankAIController::Tick(float DeltaTime)
+{
+	Super::Tick(DeltaTime);
+}
+
 ATank * ATankAIController::GetPlayerTank() const
 {
 	auto PlayerPawn = GetWorld()->GetFirstPlayerController()->GetPawn();
@@ -28,6 +33,11 @@ ATank * ATankAIController::GetPlayerTank() const
 
 	return Cast<ATank>(PlayerPawn);
 
+}
+
+FRotator * ATankAIController::AimTowardsPlayer() const
+{
+	return nullptr;
 }
 
 ATank* ATankAIController::GetControlledTank() const
