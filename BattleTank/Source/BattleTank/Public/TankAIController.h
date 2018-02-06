@@ -5,8 +5,9 @@
 #include "CoreMinimal.h"
 #include "AIController.h"
 #include "Engine/World.h"
-#include "Tank.h"
 #include "TankAIController.generated.h"
+
+class ATank;
 
 /**
  * 
