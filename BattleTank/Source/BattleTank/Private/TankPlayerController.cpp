@@ -32,7 +32,7 @@ FRotator * ATankPlayerController::AimTowardsCrosshair() const
 
 	if (GetSightRayHitLocation(HitLocation OUT))
 	{
-		UE_LOG(LogTemp, Warning, TEXT("HitLocation: %s"), *HitLocation.ToString());
+		GetControlledTank()->AimAt(HitLocation);
 	}
 
 	return NULL;
