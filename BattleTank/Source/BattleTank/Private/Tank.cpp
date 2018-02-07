@@ -41,13 +41,9 @@ void ATank::Fire()
 
 	if (Barrel && bIsReloaded) 
 	{
-
-		float Time = GetWorld()->GetTimeSeconds();
-		UE_LOG(LogTemp, Warning, TEXT("Tank fires %f"), Time);
-
 		auto Projectile = GetWorld()->SpawnActor<AProjectile>(ProjectileBlueprint,
-			Barrel->GetSocketLocation(FName("Projectile")),
-			Barrel->GetSocketRotation(FName("Projectile"))
+		Barrel->GetSocketLocation(FName("Projectile")),
+		Barrel->GetSocketRotation(FName("Projectile"))
 			);
 
 		Projectile->LaunchProjectile(LaunchSpeed);
