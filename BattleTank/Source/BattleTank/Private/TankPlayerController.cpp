@@ -7,16 +7,7 @@
 void ATankPlayerController::BeginPlay()
 {
 	Super::BeginPlay();
-	auto ControlledTank = GetControlledTank();
-	
-	if (!ControlledTank)
-	{
-		UE_LOG(LogTemp, Warning, TEXT("Player controller not possessing actor."));
-	}
-	else
-	{
-		UE_LOG(LogTemp, Warning, TEXT("Player Controller Possesing: %s."),*(ControlledTank->GetName()));
-	}
+
 }
 
 void ATankPlayerController::Tick(float DeltaTime)

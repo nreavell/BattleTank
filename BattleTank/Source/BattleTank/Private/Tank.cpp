@@ -5,6 +5,7 @@
 #include "Projectile.h"
 #include "Engine/World.h"
 #include "TankAimingComponent.h"
+#include "TankMovementComponent.h"
 
 // Sets default values
 ATank::ATank()
@@ -39,7 +40,7 @@ void ATank::Fire()
 	float Time = GetWorld()->GetTimeSeconds();
 	bool bIsReloaded = (Time - LastFireTime) > ReloadTimeInSeconds;
 
-	if (Barrel && bIsReloaded) 
+	if (Barrel && bIsReloaded && ProjectileBlueprint != NULL) 
 	{
 		auto Projectile = GetWorld()->SpawnActor<AProjectile>(ProjectileBlueprint,
 		Barrel->GetSocketLocation(FName("Projectile")),
