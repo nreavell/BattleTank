@@ -5,9 +5,9 @@
 #include "CoreMinimal.h"
 #include "GameFramework/PlayerController.h"
 #include "Engine/World.h"
-
 #include "TankPlayerController.generated.h"
 
+class UTankAimingComponent;
 
 class ATank;
 /**
@@ -24,9 +24,13 @@ protected:
 
 	virtual void Tick(float DeltaTime) override;
 
-private:
-
+	UFUNCTION(BlueprintCallable, Category = "Setup")
 	ATank* GetControlledTank() const;
+
+	UFUNCTION(BlueprintImplementableEvent, Category = "Setup")
+	void FoundAimingComponent(UTankAimingComponent* AimCompRef);
+
+private:
 
 	FRotator* AimTowardsCrosshair() const;
 
