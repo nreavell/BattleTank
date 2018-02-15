@@ -53,6 +53,8 @@ public:
 	void Fire();
 
 	bool IsBarrelMoving();
+
+	EFiringState GetFiringState() const;
 		
 private:
 
