@@ -23,11 +23,13 @@ void ATankPlayerController::Tick(float DeltaTime)
 	AimTowardsCrosshair();
 }
 
-FRotator * ATankPlayerController::AimTowardsCrosshair() const
+void ATankPlayerController::AimTowardsCrosshair() const
 {
+	if (!GetPawn()) { return; }
+
 	auto AimingComponent = GetPawn()->FindComponentByClass<UTankAimingComponent>();
 
-	if (!ensure(AimingComponent)) { return NULL; }
+	if (!ensure(AimingComponent)) { return; }
 
 	FVector HitLocation; OUT
 
@@ -36,7 +38,6 @@ FRotator * ATankPlayerController::AimTowardsCrosshair() const
 		AimingComponent->AimAt(HitLocation);
 	}
 
-	return NULL;
 }
 
 bool ATankPlayerController::GetSightRayHitLocation(FVector& HitLocation OUT) const

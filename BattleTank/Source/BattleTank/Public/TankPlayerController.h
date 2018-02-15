@@ -28,7 +28,7 @@ protected:
 
 private:
 
-	FRotator* AimTowardsCrosshair() const;
+	void AimTowardsCrosshair() const;
 
 	bool GetSightRayHitLocation(FVector& HitLocation OUT) const;
 
