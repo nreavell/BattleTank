@@ -17,10 +17,21 @@ public:
 	// Sets default values for this pawn's properties
 	ATank();
 
+	virtual float TakeDamage(float DamageAmount, struct FDamageEvent const & DamageEvent, class AController * EventInstigator, AActor* DamageCauser) override;
+
+	UFUNCTION(BlueprintPure, Category = "Health")
+	float GetHealthPercent();
+
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
-private:	
 	
+private:	
+
+	UPROPERTY(EditDefaultsOnly, Category = "Health")
+	int32 MaxHealth = 100;
+
+	UPROPERTY(EditAnywhere, Category = "Health")
+	int32 CurrentHealth = 100;
 };
