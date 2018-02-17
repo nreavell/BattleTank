@@ -20,7 +20,7 @@ float ATank::TakeDamage(float DamageAmount, FDamageEvent const & DamageEvent, AC
 	if (CurrentHealth <= 0)
 	{
 		UE_LOG(LogTemp, Warning, TEXT("You are dead"), DamageAmount, DamageToApply);
-
+		OnDeath.Broadcast();
 	}
 	return DamageToApply;
 }
@@ -35,5 +35,6 @@ void ATank::BeginPlay()
 {
 	Super::BeginPlay();
 	
+	CurrentHealth = MaxHealth;
 }
 
